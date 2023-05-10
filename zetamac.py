@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 root = "./data"
-files = os.listdir(root)
+files = sorted(os.listdir(root))
 data = []
 
 # Put the scores from each day into data
