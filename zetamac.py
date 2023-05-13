@@ -4,6 +4,8 @@ import numpy as np
 import os
 from datetime import datetime
 
+game = 'zetamac_overall'
+
 # 1. Retrieve Data
 # Sort files first by date, then by alphabetical
 def fileComparator(file):
@@ -11,7 +13,7 @@ def fileComparator(file):
     date_obj = datetime.strptime(date_str, '%b %d %Y')
     return (date_obj, file)
 
-root = "./data"
+root = "./data/" + game
 files = sorted(os.listdir(root), key=fileComparator)
 data = []
 
@@ -29,7 +31,7 @@ for file in files:
 plt.boxplot(data, labels=files, notch=True, vert=True)
 
 # Add a title and axis labels
-plt.title('Zetamac Progress')
+plt.title(game + " scores")
 plt.xlabel('Day')
 plt.ylabel('Scores')
 
